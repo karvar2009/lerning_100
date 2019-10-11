@@ -90,7 +90,7 @@ while True:
         print('следующяя заправка через 200 км')
         if p>200:
             print('вы можете доехать до следующей заправки')
-        if p==200:
+        elif p==200:
             print('вы можете доехать до следующей заправки, но если вы точно уверены что вы на этом расстоянии')
         else:
             print('советуем заправится тут')
@@ -155,14 +155,14 @@ while True:
     в порядке возрастания, если A < B, или в порядке убывания в противном случае.
     '''
     if qwertyuiop==10:
-        x=int(input('введите число '))
-        y=int(input('введите число '))
-        if y<x:
-            for i in range (x,y):
+        a=int(input('введите число '))
+        b=int(input('введите число '))
+        if a<b:
+            for i in range (a,b):
                 print(i)
             print(i+1)
         else:
-            for i in range(y,x,-1):
+            for i in range(a,b,-1):
                 print(i)
             print(i-1)
     ''' Задание 11.
