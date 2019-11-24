@@ -1,4 +1,6 @@
-import os
+import time
+from colorama import init, Fore, Back
+init()
 while True:
 
     print("0-программа для счёта мелких денег\n1-вывод меньшего числа\n2-функция sign(x)\n3-скидка\n4-сможете ли вы доехать до следующей заправки\n5-таблица умножения")
@@ -225,54 +227,42 @@ while True:
             print(f'#{y} {i}',end=" ")
             print('*'*i)
 
-    '''def func16():
-    Задание 16.
-    Вспомните НОД и НОК сделайте программу которая
-    будет спрашивать нужно НОД или НОК чисел и считать результат
-    программа примерно должна выглядеть таким образом:
-    input - Нужно НОД "Д" или НОК "К" : д
-    input - введите 1 число : 90
-    input - введите 2 число : 180
-    print - результат : 10'''
-    if qwertyuiop == 16:
-        gg =True
-        while gg : #что бы если набрали не то, программа спросила ещё раз
-            x = input('Нужно НОД "Д" или НОК "К" ')
-            y1 = int(input('введите 1 число : '))
-            y2 = int(input('введите 2 число : '))
-            if x == 'Д' or 'д':
-                if y1 < y2:
-                    for i in range(1, y1+1):
-                        if not y1 % i:
-                            if not y2 % i:
-                                nod = i
-                else:
-                    for i in range(1, y2 + 1):
-                        if not y2 % i:
-                            if not y1 % i:
-                                nod = i
-            print(f"НОД {y1} и {y2} = ", nod)
-        '''
-             else:
-                 for i in range(y1, 0, -1):
-                     pass 
-            
+    '''Задание 16.
+    Сделайте змейку без яблок,
+    но чтобы она передвигалась --
+    вниз, вправо.'''
+    if qwertyuiop==16:
+        right=0
+        snake=0
+        ff=True
+        x=input('')
+        while ff:
+            if x=='s' or snake==1:
+                for i in range (1,right+1):
+                    print(' ',end="")
+                print('S')
+                snake=1
+            if x=='d' or snake==2:
+                print('D',end="")
+                snake=2
+                right=right+1
+            time.sleep(0.5)
 
 
-
-             ss = True
-                a1 = 0
-                print(f'{y1} {chr(5010)} - ',end="") #введённое число (знак) перед продолжением стоит знак ///
-                while ss : #подбор числа
-                    a1 = a1+1 #подсчёт подбора числа
-                    o1 = y1*a1 #делители первого делимого
-                    o2 = y1*a1 #делители второго делимого
-                    print(o1,end=", ") #/// продолжение
-                    if o1 == o2 : #
-                        ss=False
-                        print()#прорпуск строки для отевта
-                print(f'Ответ на ваш пример : {o1}')
-                gg = False
-            if x == 'К' or 'к':
-
-                gg = False'''
+    if qwertyuiop==17:
+        n=int(input('Введите количество уровней   '))
+        w=n
+        print(Fore.RED + ' ' * w, end="")
+        print('*')
+        print(' ' * (w-4), end="")
+        print('*  ***  *')
+        print(' ' * (w-3), end="")
+        print('* *** *')
+        print(' ' * (w-4), end="")
+        print('*  ***  *')
+        print(' ' * w, end="")
+        print('*')
+        for i in range (1,n+1):
+            print(Fore.GREEN + ' ' * w, end="")
+            print('* ' * i)
+            w-=1
