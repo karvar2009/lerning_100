@@ -262,9 +262,8 @@ while True:
         print('<  ***  >')
         print(' ' * w, end="")
         print('V'+'\033[32m')
-       # print()
         for i in range (1,n+1):
             print(' ' * w, end="")
             print('^ ' * i)
             w-=1
-        print('\033[30m')  # and reset to default color
+        print('\033[30m')
