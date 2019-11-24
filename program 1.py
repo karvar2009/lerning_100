@@ -253,16 +253,18 @@ while True:
         n=int(input('Введите количество уровней   '))
         w=n
         print(Fore.RED + ' ' * w, end="")
-        print('*')
+        print('^')
         print(' ' * (w-4), end="")
-        print('*  ***  *')
+        print('<  ***  >')
         print(' ' * (w-3), end="")
-        print('* *** *')
+        print('> *** <')
         print(' ' * (w-4), end="")
-        print('*  ***  *')
+        print('<  ***  >')
         print(' ' * w, end="")
-        print('*')
+        print('V'+'\033[32m')
+       # print()
         for i in range (1,n+1):
-            print(Fore.GREEN + ' ' * w, end="")
-            print('* ' * i)
+            print(' ' * w, end="")
+            print('^ ' * i)
             w-=1
+        print('\033[30m')  # and reset to default color
