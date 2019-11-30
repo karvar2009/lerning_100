@@ -1,6 +1,8 @@
 import time
 from colorama import init, Fore, Back
 init()
+from random import randint
+
 while True:
 
     print("0-программа для счёта мелких денег\n1-вывод меньшего числа\n2-функция sign(x)\n3-скидка\n4-сможете ли вы доехать до следующей заправки\n5-таблица умножения")
@@ -263,7 +265,8 @@ while True:
         print(' ' * w, end="")
         print('V'+'\033[32m')
         for i in range (1,n+1):
-            print(' ' * w, end="")
-            print('^ ' * i)
+            ran = randint(1, w-1)
+            print(' ' * ran, '\033[30m' + '*' + ' ' * (w-ran-1), end="")
+            print('\033[32m' + '^ ' * i)
             w-=1
         print('\033[30m')
