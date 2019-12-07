@@ -1,7 +1,8 @@
 import time
-from colorama import init, Fore, Back
+from colorama import init, Fore, Back, Style
 init()
 from random import randint
+import pyowm
 
 while True:
 
@@ -270,3 +271,8 @@ while True:
             print('\033[32m' + '^ ' * i)
             w-=1
         print('\033[30m')
+
+
+
+    if qwertyuiop==18:
+        print(Back.RED + Fore.YELLOW +'текст : желтый, фон : красный' + Style.RESET_ALL)
