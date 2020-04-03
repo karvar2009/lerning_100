@@ -4,6 +4,7 @@ from random import randint
 KOLICHECTBO_KOPABLIKOB --- количество корабликов(однопалубные)
 TWO_KOPABLIK --- количество корабликов(двухпалубные)
 TRETIY_KORABLIK --- количество корабликов(трёхпалубные)
+
 '''
 KOLICHECTBO_KOPABLIKOB = 4
 TWO_KOPABLIK = 3
