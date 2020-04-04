@@ -1,15 +1,15 @@
 from random import randint
-
+from time import sleep
 '''
 KOLICHECTBO_KOPABLIKOB --- количество корабликов(однопалубные)
 TWO_KOPABLIK --- количество корабликов(двухпалубные)
 TRETIY_KORABLIK --- количество корабликов(трёхпалубные)
-
+MAX_KOPABLIK --- количество кораблей (четырёхпалубные)
 '''
 KOLICHECTBO_KOPABLIKOB = 4
 TWO_KOPABLIK = 3
 TRETIY_KORABLIK = 2
-
+MAX_KOPABLIK = 1
 field = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -106,30 +106,54 @@ while kol_KRB2:  # ведь когда станет 0, то по языку Pyth
 kol_KRB3 = TRETIY_KORABLIK
 while kol_KRB3:  # ведь когда станет 0, то по языку Python это False! ➝ А-а-а-а
     x, y = randint(0, 9), randint(0, 9)
-    pologenie = 2  ################################################################################################################################
-    # можно и так писать - в одну строку
-    # при x >=1 и х <= 8 и y >=1 и y <= 8 проверям все по кругу относительно точки
-    # 1 = x-1,y 2 = x-1,y+1 3 = x,y+1 4 = x+1,y+1 5 = x+1,y  6 = x+1,y-1 7 = x,y-1 8 = x-1,y-1
-    if field[x][y] == 0:
-        if pologenie == 2:
-            if (tr(x - 1, y) and tr(x - 1, y + 1) and tro(x, y + 1) and tr(x + 1, y + 1) and tr(
-                    x + 1, y - 1) and tr(x, y - 1) and tr(x - 1, y - 1) and tr(x + 2, y) and (x + 2, y + 1) and tr(
-                    x + 2, y - 1) and tr(x + 3, y) and (x + 3, y + 1) and tr(x + 3, y - 1) and tro(x+2,y) and tro(x + 1, y) and tro(x,y)):
-                field[x][y] = 3
-                field[x + 1][y] = 3
-                field[x + 2][y] = 3
-                kol_KRB3 -= 1
+    pologenie = randint(1,2)
+    if pologenie == 2:
+        if (tr(x - 1, y) and tr(x - 1, y + 1) and tro(x, y + 1) and tr(x + 1, y + 1) and tr(
+                x + 1, y - 1) and tr(x, y - 1) and tr(x - 1, y - 1) and tr(x + 2, y) and (x + 2, y + 1) and tr(
+                x + 2, y - 1) and tr(x + 3, y) and (x + 3, y + 1) and tr(x + 3, y - 1) and tro(x+2,y) and tro(x + 1, y) and tro(x,y) == True):
+            field[x][y] = 3
+            field[x + 1][y] = 3
+            field[x + 2][y] = 3
+            kol_KRB3 -= 1
 
 
-        elif pologenie == 1:
-            if (tr(x+1,y) and tr(x-1,y) and tr(x+1,y+1) and tr(x-1,y+1) and tr(x+1,y+2) and tr(x-1,y+2) and tr(x+1,y+3) and tr(x-1,y+3)):
-                field[x][y] = 2
-                field[x][y + 1] = 2
-                kol_KRB3 -= 1
+    elif pologenie == 1:
+        if (tr(x+1,y-1) and  tr(x+1,y-1) and tr(x+1,y) and tr(x-1,y) and tr(x+1,y+1) and tr(x-1,y+1) and tr(x+1,y+2) and tr(x-1,y+2) and tr(x+1,y+3) and tr(x-1,y+3) and tr(x+1,y+4) and tr(x-1,y+4) and tr(x,y-1) and tr(x,y+4) and tro(x,y+1) and tro(x,y+2) and tro(x,y+3)) == True:
+            field[x][y + 1] = 3
+            field[x][y + 2] = 3
+            field[x][y + 3] = 3
+            kol_KRB3 -= 1
+
+
+
+kol_KRB4 = MAX_KOPABLIK
+while kol_KRB4:  # ведь когда станет 0, то по языку Python это False! ➝ А-а-а-а
+    x, y = randint(0, 9), randint(0, 9)
+    pologenie = 1 ################################################
+    if pologenie == 2:
+        if (tr(0,0)):
+            field[x + 1][y] = 4
+            field[x + 2][y] = 4
+            field[x + 3][y] = 4
+            field[x + 4][y] = 4
+            kol_KRB4 -= 1
+
+
+    elif pologenie == 1:
+        if (tr(x,y) and tr(x+1,y-1) and  tr(x+1,y-1) and tr(x+1,y) and tr(x-1,y) and tr(x+1,y+1) and tr(x-1,y+1) and tr(x+1,y+2) and tr(x-1,y+2) and tr(x+1,y+3) and tr(x-1,y+3) and tr(x+1,y+4) and tr(x-1,y+4) and tr(x,y-1) and tr(x,y+5) and tr(x+1,y+5) and tr(x-1,y+5) and tro(x,y+1) and tro(x,y+2) and tro(x,y+3) and tro(x,y+4)) == True:
+            field[x][y + 1] = 4
+            field[x][y + 2] = 4
+            field[x][y + 3] = 4
+            field[x][y + 4] = 4
+            kol_KRB4 -= 1
+
+
+
+
 
 def pretty_print(mas):
     for row in mas:
         print(*row)
-
+        sleep(0.3)
 
 pretty_print(field)
