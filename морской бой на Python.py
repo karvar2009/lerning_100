@@ -154,20 +154,33 @@ def pole ():
     def pretty_print(mas):
         for row in mas:
             print(*row)
-            sleep(0.3)
 
     pretty_print(field)
 
+def hod ():
+
+    h = True
+    hh = True
+    while h:
+        pole()
+        vibor1 = input('вам нравится это расположение кораболей ?  ')
+        if vibor1 == 'Lf' or 'lf' or 'Да' or 'да':
+            h = False
+            z = input('Передайте другому игроку и попросите его нажать Enter')
+            while hh:
+
+                if z == '':
+                    hh = False
+        elif vibor1 == 'Ytn' or 'ytn' or 'Нет' or 'нет':
+            pass
+        else:
+            print('Мы вас не поняли напишите пожалуйста ответ ещё раз')
+
+
+
+        print('hahahahahaha')
 
 
 
 
-
-
-
-
-
-
-
-
-pole()
+hod()
