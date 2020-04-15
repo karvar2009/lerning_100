@@ -1,5 +1,5 @@
 from random import randint
-from time import sleep
+# from time import sleep
 '''
 KOLICHECTBO_KOPABLIKOB --- количество корабликов(однопалубные)
 TWO_KOPABLIK --- количество корабликов(двухпалубные)
@@ -23,8 +23,9 @@ field = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 no = []
+yes = []
 def zero_field():
-    field = [
+    field1 = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -161,18 +162,17 @@ def pole ():
     k1()
 
 
-    def pretty_print(mas):
-        for row in mas:
-            print(*row)
+def pretty_print(mas):
+    for row in mas:
+        print(*row)
 
-    pretty_print(field)
 
 def hod ():
     def pr (x,y):
-        canon = x * 4 + y
+        canon = x * 10 + y
         return canon
     def alll(x12,y12):
-        spaceX = x12 * 4 + y12
+        spaceX = x12 * 10 + y12
         for i in range (1,len(no)+1):
             if no == spaceX:
                 return False
@@ -185,23 +185,27 @@ def hod ():
             player1[x][y] = 6
 
     def bot():
+        hello_world = True
         nono = True
         while nono:
             xyz = randint(0,9)
             yz = randint(0,9)
             if alll(xyz,yz):
                 if player1 [xyz] [yz] == 0:
-                    for_no = pr(xyz,yz)
-                    no.append(for_no)
+                    no.append(pr(xyz,yz))
                     bot_attack(xyz,yz)
+                    if no[xyz] [yz] == 0:
+                        hello_world = False
 
 
 
     h = True
     while h:
+        global field
         pole()
+        pretty_print(field)
         vibor1 = input('вам нравится это расположение кораболей ?  ')
-        if vibor1 == 'Lf' or 'lf' or 'Да' or 'да':
+        if vibor1 == 'Lf' or vibor1 == 'lf' or vibor1 == 'Да' or vibor1 == 'да':
             h = False
             print('Ваше поле сформировано!')
             player1 = field
@@ -217,16 +221,83 @@ def hod ():
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ]
-            zero_field()
-        elif vibor1 == 'Ytn' or 'ytn' or 'Нет' or 'нет':
+            field = [
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ]
+        elif vibor1 == 'Ytn' or vibor1 == 'ytn' or vibor1 == 'Нет' or vibor1 == 'нет':
             print('Выводим ещё раз!')
         else:
             print('Мы вас не поняли напишите пожалуйста ответ ещё раз')
 
 
-        pole()
-        botik = field
-        zero_field()
+    pole()
+    botik = field
+    field = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ]
+
+    def player_attack(x,y):
+        if botik[x] [y] != 0:
+            attack_player1 [x] [y] = 8
+        else:
+            attack_player1 [x] [y] = 6
+    def allll(x12,y12): # yes это список с провереными полями ( строчка - 26 ) [ исключения в yes назначаются в строчке - 282 ]
+        spaceY = x12 * 10 + y12 # перевод из двух координат в одну ( тоже самое происходит в {pr} строчка - 171 )
+        for i in range (1,len(yes)+1): # если наше исключение равно координате то...
+            if yes == spaceY:
+                return False
+            else:
+                return True
+
+    def player():
+        Stas = True
+        for i in range (1,2):
+            nono = True
+            while nono:
+                pretty_print(attack_player1)
+                yz1 = int(input('Введите координату X '))
+                xz1 = int(input('Введите координату Y '))
+                yz = yz1 - 1
+                xyz = xz1 - 1
+                if allll(xyz,yz):
+                    yes.append(pr(xyz,yz))
+                    player_attack(xyz,yz)
+                    pretty_print(attack_player1)
+                    for i in [1,2,3,4,5]:
+                        print()
+                    pretty_print(player1)
+                    if botik[xyz] [yz] == 0:
+                        Stas = False
+                else:
+                    print('Вы уже проверяли это поле!')
+
+
+
+
+
+
+
+    while True:
+        player()
+        bot()
 
 
 
